@@ -1,0 +1,17 @@
+input{
+	margin-top: 24px;
+	width: 50%;
+}
+.panel button{
+	color: yellow;
+	background-color: black;
+	height: 25%;
+	opacity: 0.75;
+	width: 30%;
+	box-shadow: 2px 2px black;
+    border-radius: 8%;
+}
+.jumbotron{
+  background-image: url("../../assets/bg.jpg");
+	box-shadow: 2px 2px black;
+}

@@ -21,6 +21,7 @@ import { GithubService } from './github.service';
     //AppRoutingModule
   ],
   providers: [GithubService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,UserComponent,],
+
 })
 export class AppModule { }

@@ -1,13 +1,29 @@
 <div class="jumbotron" id="result">
-<form class="git-search" action="">
-  <input [(ngModel)] = "username" name ="username" (keyup)="getProfiles()"><button class="search"><img src="../assets/search.jpg" alt="icon
-  " height="22px" width="25px"></button>
-</form>
-<div *ngIf="profile">
-  <img src="{{profile.avatar_url}}" alt="logo">
-  <p>{{profile.name}}<small>{{profile.login}})</small>(</p>
-  <p>{{profile.public_repos}}</p>
-  <p>View all Repositories:<<a href="{{profile.repos_url}}">Repos</a></p>
-  <p>{{profile.created_at}}</p>
-</div>
+  <form class="git-search" action="">
+    <input [(ngModel)] = "username" name ="username" (keyup)="getProfiles()" placeholder="Search Username" width="100%">
+  </form>
+  <div *ngIf="profile">
+    <div class="panel panel-info">
+      <div class="panel-header">
+        <p> {{profile.name}} <small>({{profile.login}})</small></p>
+        <p>{{profile.public_repos}} Repositories</p>
+      </div>
+      <div class="panel-body">
+        <img src="{{profile.avatar_url}}" class="img-circle img-responsive" alt="Profile Image">
+      </div>
+      <div class="panel-footer">
+        <button class="btn-success">Followers: {{profile.followers}}</button><br><br><br>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-header">
+     <p>Repos</p>
+    </div>
+    <div class="panel-body" *ngFor = "let repo of repo">
+      <ul>
+        <li>{{repo.name}}</li>
+      </ul>
+    </div>
+  </div>
 </div>
