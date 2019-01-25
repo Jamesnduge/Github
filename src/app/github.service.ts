@@ -26,6 +26,8 @@ export class GithubService {
     searchUser(username: string){
       this.username = username;
     }
-
+   OnInit(){
+     
+   }
 
 }
