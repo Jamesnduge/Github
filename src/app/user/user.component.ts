@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubService } from '../github.service';
+import { HttpClient } from '@angular/common/http'
+
 
 @Component({
   selector: 'app-user',
@@ -6,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  profile:any;
+  username:string;
+  repo: any;
 
-  constructor() { }
+  constructor(private githubService: GithubService) {
+    }
 
+  getProfiles(){
+    this.githubService.searchUser(this.username);
+    this.githubService.getInfo().subscribe(profile => {
+      console.log(profile);
+      this.profile = profile;
+    });
+
+    this.githubService.getRepo().subscribe(repo => {
+      console.log(repo);
+      this.repo = repo;
+    });
+  }
   ngOnInit() {
   }
 
